@@ -1,4 +1,5 @@
 import copy
+import numpy as np
 #import cProfile, pstats, StringIO
 
 class Rings(object):
@@ -85,7 +86,9 @@ if __name__ == '__main__':
     with open('count.dat', 'w') as f:
         for i,row in enumerate(counts):
             f.write('{} {}\n'.format(i+4, counts[i]))
-
+      
+    fo = open('num_atoms_in_rings.txt', 'w')
+    fo.write(str(len(np.unique([val for sublist in rings.rings for val in sublist]))))
     #pr.disable()
     #s = StringIO.StringIO()
     #sortby = 'time'
